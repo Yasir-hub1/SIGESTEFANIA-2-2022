@@ -35,5 +35,12 @@ export default {
   
     b: require("../images/Marcadores/b.png"),
     a: require("../images/Marcadores/a.png"),
+
+
+    //buscar de boton de inicio
+    buscar:require("../images/buscar.png"),
+
+    //trasbordo
+    inter:require("../images/bus.png")
   };
   

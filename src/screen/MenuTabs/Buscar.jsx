@@ -15,6 +15,8 @@ import {
   import * as Location from "expo-location";
   import MapView from "react-native-maps";
   const Buscar = ({ navigation }) => {
+
+   
     /* estado para el modal */
   
     // const [isvisibleMap, setisvisibleMap] = useState(false);
