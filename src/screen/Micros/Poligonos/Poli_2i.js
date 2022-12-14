@@ -360,7 +360,7 @@ const Poli_2i = ({onPress = () => {}}) => {
   return (
     <Polyline
     coordinates={coordinates}
-    strokeColor="orange"
+    strokeColor="green"
     strokeWidth={4}
     lineCap="round"
     tappable={true}

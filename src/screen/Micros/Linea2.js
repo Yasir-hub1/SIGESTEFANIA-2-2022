@@ -185,7 +185,7 @@ const Linea2 = () => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 2 de Ida"
             />
              <Poli_2i onPress={AlertaIda} />
 
@@ -205,6 +205,7 @@ const Linea2 = () => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 2 de Vuelta"
             />
            <Poli_2 onPress={Linea2v} />
 
@@ -214,7 +215,7 @@ const Linea2 = () => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+             
             />
           </> : null}
 
@@ -225,7 +226,7 @@ const Linea2 = () => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 2 de Ida"
             />
            <Poli_2i onPress={AlertaIda} />
 
@@ -239,6 +240,7 @@ const Linea2 = () => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 1 de Vuelta"
             />
             <Poli_2 onPress={Linea2v} />
 
@@ -248,7 +250,7 @@ const Linea2 = () => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+            
             />
 
           </> : null}
@@ -257,8 +259,8 @@ const Linea2 = () => {
         </MapView>
         {/* vista informativa */}
         <View style={styles.card}>
-          <Text style={styles.date}>Ruta de partida:<Text style={{ color: "orange" }}> ───────────</Text> </Text>
-          <Text style={styles.date}>Ruta de vuelta:<Text style={{ color: "green" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
+          <Text style={styles.date}>Ruta de partida:<Text style={{ color: "green" }}> ───────────</Text> </Text>
+          <Text style={styles.date}>Ruta de vuelta:<Text style={{ color: "red" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
         </View>
 
         

@@ -191,7 +191,8 @@ const Linea16 = () => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 16 de Ida"
+              
             />
               <Poli_16i onPress={Linea16i} />
 
@@ -211,6 +212,8 @@ const Linea16 = () => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 16 de Vuelta"
+
             />
             <Poli_16v onPress={Linea16v} />
 
@@ -220,7 +223,7 @@ const Linea16 = () => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+              
             />
           </> : null}
 
@@ -231,7 +234,8 @@ const Linea16 = () => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 16 de Ida"
+              
             />
              <Poli_16i onPress={Linea16i} />
 
@@ -245,6 +249,8 @@ const Linea16 = () => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 16 de Vuelta"
+
             />
              <Poli_16v onPress={Linea16v} />
 
@@ -254,7 +260,7 @@ const Linea16 = () => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+              
             />
 
           </> : null}
@@ -266,8 +272,8 @@ const Linea16 = () => {
 
         {/* vista informativa */}
         <View style={styles.card}>
-          <Text>Ruta de partida:<Text style={{ color: "violet" }}> ───────────</Text> </Text>
-          <Text>Ruta de vuelta:<Text style={{ color: "blue" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
+          <Text>Ruta de partida:<Text style={{ color: "green" }}> ───────────</Text> </Text>
+          <Text>Ruta de vuelta:<Text style={{ color: "red" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
 
         </View>
 

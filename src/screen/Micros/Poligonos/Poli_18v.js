@@ -219,7 +219,7 @@ const Poli_18v = ({onPress = () => {}}) => {
   return (
     <Polyline
     coordinates={coordinates}
-    strokeColor="ivory"
+    strokeColor="red"
     strokeWidth={4}
     lineCap="round"
     tappable={true}

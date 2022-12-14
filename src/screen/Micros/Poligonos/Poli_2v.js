@@ -420,7 +420,7 @@ const Poli_2 = ({onPress = () => {}}) => {
   return (
     <Polyline
     coordinates={coordinates}
-    strokeColor="green"
+    strokeColor="red"
     strokeWidth={4}
     lineCap="round"
     lineDashPattern={[5]}

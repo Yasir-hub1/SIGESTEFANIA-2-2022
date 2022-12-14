@@ -189,7 +189,8 @@ const Linea17 = ({ navigation }) => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 17 de Ida"
+              
             />
           <Poli_17 onPress={Linea17i}/>
 
@@ -209,6 +210,8 @@ const Linea17 = ({ navigation }) => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 17 de Vuelta"
+
             />
          <Poli_17v onPress={Linea17v}/>
             <Marker
@@ -217,7 +220,7 @@ const Linea17 = ({ navigation }) => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+              
             />
           </> : null}
 
@@ -228,7 +231,8 @@ const Linea17 = ({ navigation }) => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 17 de Ida"
+              
             />
            <Poli_17 onPress={Linea17i}/>
 
@@ -242,6 +246,8 @@ const Linea17 = ({ navigation }) => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 17 de Vuelta"
+
             />
              <Poli_17v onPress={Linea17v}/>
 
@@ -251,7 +257,7 @@ const Linea17 = ({ navigation }) => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+             
             />
 
           </> : null}
@@ -259,8 +265,8 @@ const Linea17 = ({ navigation }) => {
         </MapView>
         {/* vista informativa */}
         <View style={styles.card}>
-          <Text>Ruta de partida:<Text style={{ color: "blue" }}> ───────────</Text> </Text>
-          <Text>Ruta de vuelta:<Text style={{ color: "gray" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
+          <Text>Ruta de partida:<Text style={{ color: "green" }}> ───────────</Text> </Text>
+          <Text>Ruta de vuelta:<Text style={{ color: "red" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
 
         </View>
 

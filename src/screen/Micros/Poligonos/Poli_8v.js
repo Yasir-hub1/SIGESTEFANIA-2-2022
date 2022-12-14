@@ -656,7 +656,7 @@ const Poli_8v = ({onPress = () => {}}) => {
   return (
     <Polyline
     coordinates={coordinates}
-    strokeColor="turquoise"
+    strokeColor="red"
     strokeWidth={4}
     lineCap="round"
     tappable={true}

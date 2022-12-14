@@ -671,7 +671,7 @@ const Poli_11i = ({onPress = () => {}}) => {
   return (
     <Polyline
     coordinates={coordinates}
-    strokeColor="coral"
+    strokeColor="green"
     strokeWidth={4}
     lineCap="round"
     tappable={true}

@@ -443,7 +443,7 @@ const Poli_5i = ({onPress = () => {}}) => {
   return (
     <Polyline
     coordinates={coordinates}
-    strokeColor="navy"
+    strokeColor="green"
     strokeWidth={4}
     lineCap="round"
     tappable={true}

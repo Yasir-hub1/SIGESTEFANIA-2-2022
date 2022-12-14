@@ -186,7 +186,7 @@ const Linea5 = ({ navigation }) => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 5 de Ida"
             />
              <Poli_5i /* polígono de ida */ onPress={alertaIda} />
 
@@ -206,6 +206,7 @@ const Linea5 = ({ navigation }) => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 5 de Vuelta"
             />
             <Poli_5v /* poligono de vuelta */ onPress={alertaVuelta} />
 
@@ -215,7 +216,7 @@ const Linea5 = ({ navigation }) => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+              
             />
           </> : null}
 
@@ -226,7 +227,8 @@ const Linea5 = ({ navigation }) => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 5 de Ida"
+
             />
            <Poli_5i /* polígono de ida */ onPress={alertaIda} />
 
@@ -249,7 +251,7 @@ const Linea5 = ({ navigation }) => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+             
             />
 
           </> : null}
@@ -262,11 +264,11 @@ const Linea5 = ({ navigation }) => {
         {/* vista informativa */}
         <View style={styles.card}>
           <Text>
-            Ruta de partida:<Text style={{ color: "navy" }}> ───────────</Text>
+            Ruta de partida:<Text style={{ color: "green" }}> ───────────</Text>
           </Text>
           <Text>
             Ruta de vuelta:
-            <Text style={{ color: "lime" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text>
+            <Text style={{ color: "red" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text>
           </Text>
         </View>
 

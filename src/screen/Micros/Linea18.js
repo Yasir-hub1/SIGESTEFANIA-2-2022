@@ -8,7 +8,6 @@ import Poli_18v from "./Poligonos/Poli_18v";
 import * as Location from "expo-location";
 import BottomSheet, {
   BottomSheetView,
-
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import Modal from "../../components/Modal";
@@ -187,7 +186,8 @@ const Linea18 = ({ navigation }) => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 18 de Ida"
+             
             />
            <Poli_18 onPress={Linea18i} />
 
@@ -207,6 +207,8 @@ const Linea18 = ({ navigation }) => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 18 de Vuelta"
+
             />
              <Poli_18v onPress={Linea18v} />
 
@@ -216,7 +218,7 @@ const Linea18 = ({ navigation }) => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+             
             />
           </> : null}
 
@@ -227,7 +229,9 @@ const Linea18 = ({ navigation }) => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              
+              description="Linea 18 de Ida"
+
             />
             <Poli_18 onPress={Linea18i} />
 
@@ -241,6 +245,8 @@ const Linea18 = ({ navigation }) => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 18 de Vuelta"
+
             />
              <Poli_18v onPress={Linea18v} />
 
@@ -250,16 +256,15 @@ const Linea18 = ({ navigation }) => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
-            />
+              />
 
           </> : null}
 
         </MapView>
         {/* vista informativa */}
         <View style={styles.card}>
-          <Text>Ruta de partida:<Text style={{ color: "turquoise" }}> ───────────</Text> </Text>
-          <Text>Ruta de vuelta:<Text style={{ color: "ivory", backgroundColor: "#ED4C67" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
+          <Text>Ruta de partida:<Text style={{ color: "green" }}> ───────────</Text> </Text>
+          <Text>Ruta de vuelta:<Text style={{ color: "red"}}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
 
         </View>
          {/* btn ver menu desplegable */}

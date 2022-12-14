@@ -5,9 +5,6 @@ import  {  Polyline } from "react-native-maps";
 const  Poli_9i = ({onPress=()=>{}}) => {
 
     const [coordinates] = useState([
- 
-     
-    
       { latitude: -17.8037552999, longitude: -63.0890911996 },
       { longitude: -63.0898515003, latitude: -17.8033758002 },
       { latitude: -17.8031340996, longitude: -63.0905240004 },
@@ -394,7 +391,7 @@ const  Poli_9i = ({onPress=()=>{}}) => {
   return (
     <Polyline
     coordinates={coordinates}
-    strokeColor="purple"
+    strokeColor="green"
     strokeWidth={4}
     lineCap="round"
     tappable={true}

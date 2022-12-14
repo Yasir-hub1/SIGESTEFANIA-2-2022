@@ -210,7 +210,8 @@ const Linea11 = () => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 11 de Ida"
+              
             />
             <Poli_11i onPress={Linea11i} />
 
@@ -230,6 +231,8 @@ const Linea11 = () => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 11 de Vuelta"
+
             />
             <Poli_11v onPress={Linea11v} />
 
@@ -239,7 +242,7 @@ const Linea11 = () => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+             
             />
           </> : null}
 
@@ -250,8 +253,8 @@ const Linea11 = () => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
-            />
+              description="Linea 11 de Ida"
+              />
             <Poli_11i onPress={Linea11i} />
 
             <Marker
@@ -264,6 +267,8 @@ const Linea11 = () => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 1 de Vuelta"
+
             />
             <Poli_11v onPress={Linea11v} />
 
@@ -286,11 +291,11 @@ const Linea11 = () => {
         {/* vista informativa */}
         <View style={styles.card}>
           <Text>
-            Ruta de partida:<Text style={{ color: "coral" }}> ───────────</Text>{" "}
+            Ruta de partida:<Text style={{ color: "green" }}> ───────────</Text>{" "}
           </Text>
           <Text>
             Ruta de vuelta:
-            <Text style={{ color: "tan" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text>
+            <Text style={{ color: "red" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text>
           </Text>
         </View>
         {/* btn ver menu desplegable */}

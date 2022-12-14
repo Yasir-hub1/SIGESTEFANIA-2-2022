@@ -587,7 +587,7 @@ const Poli_11v = ({onPress = () => {}}) => {
   return (
     <Polyline
     coordinates={coordinates}
-    strokeColor="tan"
+    strokeColor="red"
     strokeWidth={4}
     lineCap="round"
     lineDashPattern={[5]}

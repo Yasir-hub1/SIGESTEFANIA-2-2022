@@ -193,7 +193,8 @@ const Linea9 = () => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 9 de Ida"
+              
             />
             <Poli_9i onPress={Linea9i} />
 
@@ -213,6 +214,8 @@ const Linea9 = () => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 9 de Vuelta"
+
             />
             <Poli_9v onPress={Linea9v} />
 
@@ -222,7 +225,7 @@ const Linea9 = () => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+              
             />
           </> : null}
 
@@ -233,7 +236,8 @@ const Linea9 = () => {
               coordinate={origen} /* marcador de inicio */
               image={imagenPath.icCurLoc} /* cambio de imagen del marker */
               title="Origen"
-              description="Ruta de partida"
+              description="Linea 9 de Ida"
+              
             />
             <Poli_9i onPress={Linea9i} />
 
@@ -247,6 +251,8 @@ const Linea9 = () => {
               coordinate={destino} /* marcador de destino */
               image={imagenPath.icCurLoc} /* cambia de imagen del default */
               title="Origen"
+              description="Linea 9 de Vuelta"
+
             />
             <Poli_9v onPress={Linea9v} />
 
@@ -256,7 +262,7 @@ const Linea9 = () => {
               image={imagenPath.icGreenMarker}
 
               title="Destino"
-              description="Ruta de partida"
+              
             />
 
           </> : null}
@@ -265,8 +271,8 @@ const Linea9 = () => {
         </MapView>
         {/* vista informativa */}
         <View style={styles.card}>
-          <Text>Ruta de partida:<Text style={{ color: "purple" }}> ───────────</Text> </Text>
-          <Text>Ruta de vuelta:<Text style={{ color: "brown" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
+          <Text>Ruta de partida:<Text style={{ color: "green" }}> ───────────</Text> </Text>
+          <Text>Ruta de vuelta:<Text style={{ color: "red" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
 
         </View>
         {/* btn ver menu desplegable */}
