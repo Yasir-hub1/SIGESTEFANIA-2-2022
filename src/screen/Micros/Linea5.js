@@ -9,7 +9,7 @@ import * as Location from "expo-location";
 
 import BottomSheet, {
   BottomSheetView,
- 
+
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import Modal from "../../components/Modal";
@@ -17,85 +17,85 @@ import Modal from "../../components/Modal";
 
 const Linea5 = ({ navigation }) => {
   /* Info de la linea 5 */
-const Lineas5=[//26
-{
-  id:"1",
-  titulo:"Avenida Kuljis"
-},{
-  id:"2",
-  titulo:"Tienda Nelly"
-},{
-  id:"3",
-  titulo:"Tienda de Barrio Mirtha \nVillagomez/Avenida Kuljis"
-},{
-  id:"4",
-  titulo:"Tienda de Barrio Lily \nCarera/Avenida Kuljis"
-},{
-  id:"5",
-  titulo:"Tienda de Barrio Melody \nMontenegro/Calle 10"
-},{
-  id:"6",
-  titulo:"Tienda de Barrio Basilia \nYucra/Avenida Kuljis"
-},{
-  id:"7",
-  titulo:"Tienda \nDalcy/Colectora Noreste"
-},{
-  id:"8",
-  titulo:"Salón Anita:Color y \nEstilo./Avenida Piraí"
-},{
-  id:"9",
-  titulo:"Avenida Tahuichi"
-},{
-  id:"10",
-  titulo:"Spa Siempra \nBella/Avenida Piraí"
-},{
-  id:"11",
-  titulo:"Metegol Cancha"
-},{
-  id:"12",
-  titulo:"Tienda de Barrio Blanca \nMaldonado/Avenida Piraí"
-},{
-  id:"13",
-  titulo:"Pablo Neruda"
-},{
-  id:"14",
-  titulo:"Samantha Productos \nGourmet/Avenida Piraí"
-},{
-  id:"15",
-  titulo:"Tienda de Barrio \nAbrahan/Campiñas"
-},{
-  id:"16",
-  titulo:"Gusteaus \nResto-Bar/Avenida Piraí"
-},{
-  id:"17",
-  titulo:"Takumi \nRamen/Avenida Piraí"
-},{
-  id:"18",
-  titulo:"SMART servicio tecnico \nde celulares/Tobité"
-},{
-  id:"19",
-  titulo:"Karen&Lucero\n/Pedro Suárez Arana"
-},{
-  id:"20",
-  titulo:"Deja \nVu/Avenida Piraí"
-},{
-  id:"21",
-  titulo:"Tienda \nJesus/Avenida Piraí"
-},{
-  id:"22",
-  titulo:"Avenida Piraí"
-},{
-  id:"23",
-  titulo:"Ruby Hair & Make - Up \nStudio/Avenida Piraí"
-},{
-  id:"24",
-  titulo:"Atm-Banco Mercantil \nSanta Cruz/Avenida Piraí"
-},
-{
-  id:"25",
-  titulo:"Banco Unión/\nAvenida Piraí"
-},
-]
+  const Lineas5 = [//26
+    {
+      id: "1",
+      titulo: "Avenida Kuljis"
+    }, {
+      id: "2",
+      titulo: "Tienda Nelly"
+    }, {
+      id: "3",
+      titulo: "Tienda de Barrio Mirtha \nVillagomez/Avenida Kuljis"
+    }, {
+      id: "4",
+      titulo: "Tienda de Barrio Lily \nCarera/Avenida Kuljis"
+    }, {
+      id: "5",
+      titulo: "Tienda de Barrio Melody \nMontenegro/Calle 10"
+    }, {
+      id: "6",
+      titulo: "Tienda de Barrio Basilia \nYucra/Avenida Kuljis"
+    }, {
+      id: "7",
+      titulo: "Tienda \nDalcy/Colectora Noreste"
+    }, {
+      id: "8",
+      titulo: "Salón Anita:Color y \nEstilo./Avenida Piraí"
+    }, {
+      id: "9",
+      titulo: "Avenida Tahuichi"
+    }, {
+      id: "10",
+      titulo: "Spa Siempra \nBella/Avenida Piraí"
+    }, {
+      id: "11",
+      titulo: "Metegol Cancha"
+    }, {
+      id: "12",
+      titulo: "Tienda de Barrio Blanca \nMaldonado/Avenida Piraí"
+    }, {
+      id: "13",
+      titulo: "Pablo Neruda"
+    }, {
+      id: "14",
+      titulo: "Samantha Productos \nGourmet/Avenida Piraí"
+    }, {
+      id: "15",
+      titulo: "Tienda de Barrio \nAbrahan/Campiñas"
+    }, {
+      id: "16",
+      titulo: "Gusteaus \nResto-Bar/Avenida Piraí"
+    }, {
+      id: "17",
+      titulo: "Takumi \nRamen/Avenida Piraí"
+    }, {
+      id: "18",
+      titulo: "SMART servicio tecnico \nde celulares/Tobité"
+    }, {
+      id: "19",
+      titulo: "Karen&Lucero\n/Pedro Suárez Arana"
+    }, {
+      id: "20",
+      titulo: "Deja \nVu/Avenida Piraí"
+    }, {
+      id: "21",
+      titulo: "Tienda \nJesus/Avenida Piraí"
+    }, {
+      id: "22",
+      titulo: "Avenida Piraí"
+    }, {
+      id: "23",
+      titulo: "Ruby Hair & Make - Up \nStudio/Avenida Piraí"
+    }, {
+      id: "24",
+      titulo: "Atm-Banco Mercantil \nSanta Cruz/Avenida Piraí"
+    },
+    {
+      id: "25",
+      titulo: "Banco Unión/\nAvenida Piraí"
+    },
+  ]
 
   /* estado para el modal */
 
@@ -163,6 +163,10 @@ const Lineas5=[//26
     toastRef.current.show("Linea 5: Ruta de vuelta");
   };
 
+  const [ActivarIda, setActivarIda] = useState(false);
+  const [ActivaVuelta, setActivaVuelta] = useState(false);
+  const [ActivarTodo, setActivarTodo] = useState(false);
+
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -173,24 +177,87 @@ const Lineas5=[//26
           showsUserLocation={true}
           toolbarEnabled={false}
           userLocationFastestInterval={5000}
-          mapPadding={{ top: 395 }}
+          mapPadding={{ top: 495 }}
         >
-          <Marker
-            coordinate={origen} /* marcador de inicio */
-            image={imagenPath.icCurLoc} /* cambio de imagen del marker */
-            title="Origen"
-            description="Ruta de partida"
-          />
 
-          <Marker
-            coordinate={destino} /* marcador de destino */
-            image={imagenPath.icGreenMarker} /* cambia de imagen del default */
-            title="Destino"
-          />
+          {ActivarIda ? <>
 
-          <Poli_5i /* polígono de ida */ onPress={alertaIda} />
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
+             <Poli_5i /* polígono de ida */ onPress={alertaIda} />
 
-          <Poli_5v /* poligono de vuelta */ onPress={alertaVuelta} />
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
+
+
+          </> : null}
+
+          {ActivaVuelta ? <>
+
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+            <Poli_5v /* poligono de vuelta */ onPress={alertaVuelta} />
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+          </> : null}
+
+          {/* Mostrando ambos sentidos */}
+
+          {ActivarTodo ? <>
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
+           <Poli_5i /* polígono de ida */ onPress={alertaIda} />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+            <Poli_5v /* poligono de vuelta */ onPress={alertaVuelta} />
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+
+          </> : null}
+
+
+
+
+
         </MapView>
         {/* vista informativa */}
         <View style={styles.card}>
@@ -202,8 +269,10 @@ const Lineas5=[//26
             <Text style={{ color: "lime" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text>
           </Text>
         </View>
-        {/* btn desplegable */}
-        <View style={styles.btnVerMenu}>
+
+        
+        {/* btn ver menu desplegable */}
+        <View style={[styles.btnVerMenu, { marginTop: 220 }]}>
           <TouchableOpacity onPress={() => handledSnapPress(0)}>
             <View style={styles.btnPlus}>
               <Image
@@ -213,6 +282,40 @@ const Lineas5=[//26
             </View>
           </TouchableOpacity>
         </View>
+
+
+
+
+
+        {/* //BTN DE TODO */}
+
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivarTodo(!ActivarTodo); setActivarIda(false); setActivaVuelta(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>IV</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE IDA */}
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivarIda(!ActivarIda); setActivaVuelta(false); setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LI</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE VUELTA */}
+
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivaVuelta(!ActivaVuelta); setActivarIda(false); setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LV</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
       </View>
 
       <BottomSheet
@@ -241,18 +344,18 @@ const Lineas5=[//26
         </BottomSheetView>
         <BottomSheetScrollView style={styles.ScrollViewMenu}>
           {/* componente de informacion de las rutas */}
-          {Lineas5.map((prop,key)=>{
-        return(
-          <View key={key}>
-          <Text style={styles.TextoMenu}>{prop.titulo}</Text>
-          <Image source={imagenPath.icono} style={styles.icono}/>
-          </View>
-        );
+          {Lineas5.map((prop, key) => {
+            return (
+              <View key={key}>
+                <Text style={styles.TextoMenu}>{prop.titulo}</Text>
+                <Image source={imagenPath.icono} style={styles.icono} />
+              </View>
+            );
 
-      })}
-        <Text style={styles.TextoMenu}></Text>
+          })}
+          <Text style={styles.TextoMenu}></Text>
         </BottomSheetScrollView>
-        <View style={{marginBottom:15}}/>
+        <View style={{ marginBottom: 15 }} />
       </BottomSheet>
 
       <Toast ref={toastRef} position="top" opacity={0.8} />
@@ -398,24 +501,24 @@ const styles = StyleSheet.create({
     color: "#4b6584",
     marginTop: -15,
   },
-    /* estilos de INfolineas */
-    TextoMenu:{
-      fontSize:13.5,
-      marginLeft:100,
-      flex: 1,
-      paddingTop:20,
-     
-     /*  textAlign: 'justify',  */
-     /*  lineHeight: 25, */
-    },
-    icono:{
-      
-      width: 40,
-      height: 30,
-      marginLeft:20,
-      marginTop:-30
-    
-    },
+  /* estilos de INfolineas */
+  TextoMenu: {
+    fontSize: 13.5,
+    marginLeft: 100,
+    flex: 1,
+    paddingTop: 20,
+
+    /*  textAlign: 'justify',  */
+    /*  lineHeight: 25, */
+  },
+  icono: {
+
+    width: 40,
+    height: 30,
+    marginLeft: 20,
+    marginTop: -30
+
+  },
 });
 
 export default Linea5;

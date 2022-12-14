@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import {TouchableOpacity, StyleSheet, View, Image, Text } from "react-native";
+import { TouchableOpacity, StyleSheet, View, Image, Text } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import Toast from "react-native-easy-toast";
 import imagenPath from "../imagenPath";
@@ -8,7 +8,7 @@ import Poli_11v from "./Poligonos/Poli_11v";
 import * as Location from "expo-location";
 import BottomSheet, {
   BottomSheetView,
-  
+
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import Modal from "../../components/Modal";
@@ -168,10 +168,10 @@ const Linea11 = () => {
       longitudeDelta: 0.0942,
     },
     destino: {
-      latitude: -17.8114112 /* destino  */,
-      longitude: -63.1450336,
+
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0942,
+      longitude: -63.1417629997, latitude: -17.7202813004
     },
   });
   const mapRef = useRef();
@@ -184,6 +184,12 @@ const Linea11 = () => {
   const Linea11v = () => {
     toastRef.current.show("Linea 11: Ruta de vuelta");
   };
+
+  const [ActivarIda, setActivarIda] = useState(false);
+  const [ActivaVuelta, setActivaVuelta] = useState(false);
+  const [ActivarTodo, setActivarTodo] = useState(false);
+
+
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -194,23 +200,88 @@ const Linea11 = () => {
           showsUserLocation={true}
           toolbarEnabled={false}
           userLocationFastestInterval={5000}
-          mapPadding={{ top: 395 }}
+          mapPadding={{ top: 495 }}
         >
-          <Marker
-            coordinate={origen} /* marcador de inicio */
-            image={imagenPath.icCurLoc} /* cambio de imagen del marker */
-            title="Origen"
-            description="Ruta de partida"
-          />
 
-          <Marker
-            coordinate={destino} /* marcador de destino */
-            image={imagenPath.icGreenMarker} /* cambia de imagen del default */
-            title="Destino"
-          />
-          <Poli_11i onPress={Linea11i} />
 
-          <Poli_11v onPress={Linea11v} />
+          {ActivarIda ? <>
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
+            <Poli_11i onPress={Linea11i} />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
+
+
+          </> : null}
+
+          {ActivaVuelta ? <>
+
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+            <Poli_11v onPress={Linea11v} />
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+          </> : null}
+
+          {/* Mostrando ambos sentidos */}
+
+          {ActivarTodo ? <>
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
+            <Poli_11i onPress={Linea11i} />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+            <Poli_11v onPress={Linea11v} />
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+
+          </> : null}
+
+
+
+
+
         </MapView>
         {/* vista informativa */}
         <View style={styles.card}>
@@ -222,14 +293,44 @@ const Linea11 = () => {
             <Text style={{ color: "tan" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text>
           </Text>
         </View>
-        {/* btn desplegable*/}
-        <View style={styles.btnVerMenu}>
+        {/* btn ver menu desplegable */}
+        <View style={[styles.btnVerMenu, { marginTop: 220 }]}>
           <TouchableOpacity onPress={() => handledSnapPress(0)}>
             <View style={styles.btnPlus}>
               <Image
                 source={imagenPath.puntero}
                 style={{ width: 80, height: 40, tintColor: "#ffffff" }}
               ></Image>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+
+        {/* //BTN DE TODO */}
+
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivarTodo(!ActivarTodo); setActivarIda(false); setActivaVuelta(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>IV</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE IDA */}
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivarIda(!ActivarIda); setActivaVuelta(false); setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LI</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE VUELTA */}
+
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivaVuelta(!ActivaVuelta); setActivarIda(false); setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LV</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -271,7 +372,7 @@ const Linea11 = () => {
           })}
           <Text style={styles.TextoMenu}></Text>
         </BottomSheetScrollView>
-        <View style={{marginBottom:15}}/>
+        <View style={{ marginBottom: 15 }} />
       </BottomSheet>
       <Toast ref={toastRef} position="top" opacity={0.8} />
     </View>

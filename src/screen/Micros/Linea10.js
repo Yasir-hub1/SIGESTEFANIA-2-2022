@@ -182,6 +182,19 @@ const Linea10 = () => {
   const Linea10v = () => {
     toastRef.current.show("Linea 10: Ruta de vuelta");
   };
+
+
+
+  const [ActivarIda, setActivarIda] = useState(false);
+  const [ActivaVuelta, setActivaVuelta] = useState(false);
+  const [ActivarTodo, setActivarTodo] = useState(false);
+  
+
+
+
+
+
+
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -192,23 +205,82 @@ const Linea10 = () => {
           showsUserLocation={true}
           toolbarEnabled={false}
           userLocationFastestInterval={5000}
-          mapPadding={{ top: 395 }}
+          mapPadding={{ top: 495 }}
         >
-          <Marker
-            coordinate={origen} /* marcador de inicio */
-            image={imagenPath.icCurLoc} /* cambio de imagen del marker */
-            title="Origen"
-            description="Ruta de partida"
-          />
+           {ActivarIda ? <>
 
-          <Marker
-            coordinate={destino} /* marcador de destino */
-            image={imagenPath.icGreenMarker} /* cambia de imagen del default */
-            title="Destino"
-          />
-          <Poli_10i onPress={Linea10i} />
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
+            <Poli_10i onPress={Linea10i} />
 
-          <Poli_10v onPress={Linea10v} />
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
+
+
+          </> : null}
+
+          {ActivaVuelta ? <>
+
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+             <Poli_10v onPress={Linea10v} />   
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+          </> : null}
+
+          {/* Mostrando ambos sentidos */}
+
+          {ActivarTodo ? <>
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
+             <Poli_10i onPress={Linea10i} />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+         <Poli_10v onPress={Linea10v} />  
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+
+          </> : null}
+         
         </MapView>
         {/* vista informativa */}
         <View style={styles.card}>
@@ -222,14 +294,44 @@ const Linea10 = () => {
           </Text>
         </View>
 
-        {/* btn desplegable */}
-        <View style={styles.btnVerMenu}>
+        {/* btn ver menu desplegable */}
+         <View style={[styles.btnVerMenu, { marginTop: 220 }]}>
           <TouchableOpacity onPress={() => handledSnapPress(0)}>
             <View style={styles.btnPlus}>
               <Image
                 source={imagenPath.puntero}
                 style={{ width: 80, height: 40, tintColor: "#ffffff" }}
               ></Image>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+
+         {/* //BTN DE TODO */}
+
+         <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivarTodo(!ActivarTodo); setActivarIda(false); setActivaVuelta(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>IV</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE IDA */}
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivarIda(!ActivarIda); setActivaVuelta(false); setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LI</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE VUELTA */}
+
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivaVuelta(!ActivaVuelta); setActivarIda(false); setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LV</Text>
             </View>
           </TouchableOpacity>
         </View>

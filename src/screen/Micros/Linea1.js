@@ -110,13 +110,7 @@ const Linea1 = ({ navigation }) => {
   // const snapPoints = ["60%", "95%"];
   const snapPoints = useMemo(() => ["60%", "90%"], []);
 
-  /*  const handledSnapPress = useCallback((index) => {
-     sheetRef.current?.snapToIndex(index);
-     setIsOpen(true);
-   }, []); */
-  /*  const handleSheetChange = useCallback((index) => {
-     console.log("handleSheetChange", index);
-   }, []); */
+
   const handleSnapPress = useCallback((index) => {
     sheetRef.current?.snapToIndex(index);
   }, []);
@@ -171,6 +165,11 @@ const Linea1 = ({ navigation }) => {
     toastRef.current.show("Linea 1: Ruta de vuelta");
   };
 
+
+  const [ActivarIda, setActivarIda] = useState(false);
+  const [ActivaVuelta, setActivaVuelta] = useState(false);
+  const [ActivarTodo, setActivarTodo] = useState(false);
+
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -181,35 +180,94 @@ const Linea1 = ({ navigation }) => {
           showsUserLocation={true}
           toolbarEnabled={false}
           userLocationFastestInterval={5000}
-          mapPadding={{ top: 395 }}
+          mapPadding={{ top: 495 }}
         >
-          <Marker
-            coordinate={origen} /* marcador de inicio */
-            image={imagenPath.icCurLoc} /* cambio de imagen del marker */
-            title="Origen"
-            description="Ruta de partida"
-          />
+          {ActivarIda ? <>
 
-          <Marker
-            coordinate={destino} /* marcador de destino */
-            image={imagenPath.icGreenMarker} /* cambia de imagen del default */
-            title="Destino"
-          />
-         
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
+            <Poli_1 /* polígono de ida */ onPress={alertaIda} />
 
-          <Poli_1 /* polígono de ida */ onPress={alertaIda} />
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
 
-          <Poli_1v /* poligono de vuelta */ onPress={alertaVuelta} />
+
+          </> : null}
+
+          {ActivaVuelta ? <>
+
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+            <Poli_1v /* poligono de vuelta */ onPress={alertaVuelta} />
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+          </> : null}
+
+          {/* Mostrando ambos sentidos */}
+
+          {ActivarTodo ? <>
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
+            <Poli_1 /* polígono de ida */ onPress={alertaIda} />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+            <Poli_1v /* poligono de vuelta */ onPress={alertaVuelta} />
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+
+          </> : null}
+
+
+
         </MapView>
         {/* vista informativa */}
         <View style={styles.card}>
           <Text >Ruta de partida:<Text style={{ color: "black" }}> ───────────</Text> </Text>
           <Text >Ruta de vuelta:<Text style={{ color: "red" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
-         
+
 
         </View>
         {/* btn ver menu desplegable */}
-        <View style={styles.btnVerMenu}>
+        <View style={[styles.btnVerMenu, { marginTop: 220 }]}>
           <TouchableOpacity onPress={() => handleSnapPress(0)}>
             <View style={styles.btnPlus}>
               <Image
@@ -219,7 +277,43 @@ const Linea1 = ({ navigation }) => {
             </View>
           </TouchableOpacity>
         </View>
+
+
+
+
+
+        {/* //BTN DE TODO */}
+
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => {setActivarTodo(!ActivarTodo);setActivarIda(false);setActivaVuelta(false)}}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>IV</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE IDA */}
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivarIda(!ActivarIda); setActivaVuelta(false);setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LI</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE VUELTA */}
+
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivaVuelta(!ActivaVuelta); setActivarIda(false);setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LV</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
+
+
+
 
       <BottomSheet
         style={styles.MenuDesplegable}

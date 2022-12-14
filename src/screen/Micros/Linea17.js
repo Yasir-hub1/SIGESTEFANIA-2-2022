@@ -1,5 +1,5 @@
-import React, { useState, useRef,useEffect ,useCallback} from "react";
-import {TouchableOpacity, StyleSheet, View ,Image,Text } from "react-native";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import { TouchableOpacity, StyleSheet, View, Image, Text } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import Toast from "react-native-easy-toast";
 import imagenPath from "../imagenPath";
@@ -8,7 +8,7 @@ import Poli_17v from "./Poligonos/Poli_17v";
 import * as Location from "expo-location";
 import BottomSheet, {
   BottomSheetView,
-  
+
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import Modal from "../../components/Modal";
@@ -16,84 +16,84 @@ import Modal from "../../components/Modal";
 
 const Linea17 = ({ navigation }) => {
   /* Info de la linea 17 */
-  const Lineas17=[//26
-  {
-    id:"1",
-    titulo:"Avenida Irala"
-  },{
-    id:"2",
-    titulo:"Av. Irala Y Potosí"
-  },{
-    id:"3",
-    titulo:"Colon, 758"
-  },{
-    id:"4",
-    titulo:"Av. Cañoto Y La Riva"
-  },{
-    id:"5",
-    titulo:"Av. Cañoto Y Salvatierra"
-  },{
-    id:"6",
-    titulo:"Av. Cañoto Y Mercado"
-  },{
-    id:"7",
-    titulo:"Av. Cañoto Y Suaréz De Figueroa"
-  },{
-    id:"8",
-    titulo:"Av. Cañoto E Ingavi"
-  },{
-    id:"9",
-    titulo:"Av. Cañoto Y Ayacucho"
-  },{
-    id:"10",
-    titulo:"Av. Cañoto Y Junín"
-  },{
-    id:"11",
-    titulo:"Av. Cañoto Y Rafael Peña"
-  },{
-    id:"12",
-    titulo:"Av. Cañoto Y España"
-  },{
-    id:"13",
-    titulo:"Av. Uruguay Y Beni"
-  },{
-    id:"14",
-    titulo:"Av. Uruguay Y Aroma"
-  },{
-    id:"15",
-    titulo:"Av. Uruguay Y Quijarro"
-  },{
-    id:"16",
-    titulo:"Av. Uruguay Y Avaroa"
-  },{
-    id:"17",
-    titulo:"Avenue Trinidad, 26"
-  },{
-    id:"18",
-    titulo:"Av. Uruguay Y Mamoré"
-  },{
-    id:"19",
-    titulo:"Av. Uruguay Y Av. Suárez Arana"
-  },{
-    id:"20",
-    titulo:"Av. Argomosa Y Bolívar"
-  },{
-    id:"21",
-    titulo:"Av. Argomosa Y Av. Melchor Pinto"
-  },{
-    id:"22",
-    titulo:"Av. Viedma Y Warnes"
-  },{
-    id:"23",
-    titulo:"Av. Viedma Y Oruro"
-  },{
-    id:"24",
-    titulo:"Av. Viedma Y Walter Vega"
-  },
-  {
-    id:"25",
-    titulo:"Avenida Irala"
-  },
+  const Lineas17 = [//26
+    {
+      id: "1",
+      titulo: "Avenida Irala"
+    }, {
+      id: "2",
+      titulo: "Av. Irala Y Potosí"
+    }, {
+      id: "3",
+      titulo: "Colon, 758"
+    }, {
+      id: "4",
+      titulo: "Av. Cañoto Y La Riva"
+    }, {
+      id: "5",
+      titulo: "Av. Cañoto Y Salvatierra"
+    }, {
+      id: "6",
+      titulo: "Av. Cañoto Y Mercado"
+    }, {
+      id: "7",
+      titulo: "Av. Cañoto Y Suaréz De Figueroa"
+    }, {
+      id: "8",
+      titulo: "Av. Cañoto E Ingavi"
+    }, {
+      id: "9",
+      titulo: "Av. Cañoto Y Ayacucho"
+    }, {
+      id: "10",
+      titulo: "Av. Cañoto Y Junín"
+    }, {
+      id: "11",
+      titulo: "Av. Cañoto Y Rafael Peña"
+    }, {
+      id: "12",
+      titulo: "Av. Cañoto Y España"
+    }, {
+      id: "13",
+      titulo: "Av. Uruguay Y Beni"
+    }, {
+      id: "14",
+      titulo: "Av. Uruguay Y Aroma"
+    }, {
+      id: "15",
+      titulo: "Av. Uruguay Y Quijarro"
+    }, {
+      id: "16",
+      titulo: "Av. Uruguay Y Avaroa"
+    }, {
+      id: "17",
+      titulo: "Avenue Trinidad, 26"
+    }, {
+      id: "18",
+      titulo: "Av. Uruguay Y Mamoré"
+    }, {
+      id: "19",
+      titulo: "Av. Uruguay Y Av. Suárez Arana"
+    }, {
+      id: "20",
+      titulo: "Av. Argomosa Y Bolívar"
+    }, {
+      id: "21",
+      titulo: "Av. Argomosa Y Av. Melchor Pinto"
+    }, {
+      id: "22",
+      titulo: "Av. Viedma Y Warnes"
+    }, {
+      id: "23",
+      titulo: "Av. Viedma Y Oruro"
+    }, {
+      id: "24",
+      titulo: "Av. Viedma Y Walter Vega"
+    },
+    {
+      id: "25",
+      titulo: "Avenida Irala"
+    },
   ]
   /* estado para el modal */
 
@@ -119,14 +119,14 @@ const Linea17 = ({ navigation }) => {
   useEffect(() => {
     (async () => {
       const resultPermiso = await Location.requestForegroundPermissionsAsync();
-    
+
       const EstadoPermiso = resultPermiso.status;
-     
+
       if (EstadoPermiso !== "granted") {
-        toastRef.current.show("Debes aceptar los permisos de localización",3000);
+        toastRef.current.show("Debes aceptar los permisos de localización", 3000);
       } else {
         const Userlocal = await Location.getCurrentPositionAsync({});
-      
+
         setlocation({
           latitude: Userlocal.coords.latitude,
           longitude: Userlocal.coords.longitude,
@@ -161,6 +161,15 @@ const Linea17 = ({ navigation }) => {
   const Linea17v = () => {
     toastRef.current.show("Linea 17: Ruta de vuelta");
   };
+
+
+  const [ActivarIda, setActivarIda] = useState(false);
+  const [ActivaVuelta, setActivaVuelta] = useState(false);
+  const [ActivarTodo, setActivarTodo] = useState(false);
+
+
+
+
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -171,35 +180,92 @@ const Linea17 = ({ navigation }) => {
           showsUserLocation={true}
           toolbarEnabled={false}
           userLocationFastestInterval={5000}
-          mapPadding={{ top: 395 }}
+          mapPadding={{ top: 495 }}
 
         >
-          <Marker
-            coordinate={origen} /* marcador de inicio */
-            image={imagenPath.icCurLoc} /* cambio de imagen del marker */
-            title="Origen"
-            description="Ruta de partida"
-          />
+          {ActivarIda ? <>
 
-          <Marker
-            coordinate={destino} /* marcador de destino */
-            image={imagenPath.icGreenMarker} /* cambia de imagen del default */
-            title="Destino"
-          />
-
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
           <Poli_17 onPress={Linea17i}/>
-          <Poli_17v onPress={Linea17v}/>
-        
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
+
+
+          </> : null}
+
+          {ActivaVuelta ? <>
+
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+         <Poli_17v onPress={Linea17v}/>
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+          </> : null}
+
+          {/* Mostrando ambos sentidos */}
+
+          {ActivarTodo ? <>
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              image={imagenPath.icCurLoc} /* cambio de imagen del marker */
+              title="Origen"
+              description="Ruta de partida"
+            />
+           <Poli_17 onPress={Linea17i}/>
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icGreenMarker} /* cambia de imagen del default */
+              title="Destino"
+            />
+
+            <Marker
+              coordinate={destino} /* marcador de destino */
+              image={imagenPath.icCurLoc} /* cambia de imagen del default */
+              title="Origen"
+            />
+             <Poli_17v onPress={Linea17v}/>
+
+            <Marker
+              coordinate={origen} /* marcador de inicio */
+              /* cambio de imagen del marker */
+              image={imagenPath.icGreenMarker}
+
+              title="Destino"
+              description="Ruta de partida"
+            />
+
+          </> : null}
+
         </MapView>
-         {/* vista informativa */}
-         <View style={styles.card}>
-        <Text>Ruta de partida:<Text style={{color:"blue"}}> ───────────</Text> </Text>
-        <Text>Ruta de vuelta:<Text style={{color:"gray"}}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
-            
+        {/* vista informativa */}
+        <View style={styles.card}>
+          <Text>Ruta de partida:<Text style={{ color: "blue" }}> ───────────</Text> </Text>
+          <Text>Ruta de vuelta:<Text style={{ color: "gray" }}> ─ ─ ─ ─ ─ ─ ─ ─</Text></Text>
+
         </View>
 
-        {/* btn desplegable*/}
-        <View style={styles.btnVerMenu}>
+        {/* btn ver menu desplegable */}
+        <View style={[styles.btnVerMenu, { marginTop: 220 }]}>
           <TouchableOpacity onPress={() => handledSnapPress(0)}>
             <View style={styles.btnPlus}>
               <Image
@@ -209,6 +275,38 @@ const Linea17 = ({ navigation }) => {
             </View>
           </TouchableOpacity>
         </View>
+
+
+         {/* //BTN DE TODO */}
+
+         <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivarTodo(!ActivarTodo); setActivarIda(false); setActivaVuelta(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>IV</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE IDA */}
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivarIda(!ActivarIda); setActivaVuelta(false); setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LI</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* //BTN DE VUELTA */}
+
+        <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
+          <TouchableOpacity onPress={() => { setActivaVuelta(!ActivaVuelta); setActivarIda(false); setActivarTodo(false) }}>
+            <View style={styles.btnPlus}>
+              <Text style={{ color: "#ffffff", fontSize: 20 }}>LV</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        
       </View>
       <BottomSheet
         style={styles.MenuDesplegable}
@@ -236,19 +334,19 @@ const Linea17 = ({ navigation }) => {
         </BottomSheetView>
         <BottomSheetScrollView style={styles.ScrollViewMenu}>
           {/* componente de informacion de las rutas */}
-       {Lineas17.map((l,key)=>{
-        return (
-          <View key={key}>
-          <Text style={styles.TextoMenu}>{l.titulo}</Text>
-          <Image source={imagenPath.icono} style={styles.icono} />
-        </View>
-        );
-       })}
-        <Text style={styles.TextoMenu}></Text>
+          {Lineas17.map((l, key) => {
+            return (
+              <View key={key}>
+                <Text style={styles.TextoMenu}>{l.titulo}</Text>
+                <Image source={imagenPath.icono} style={styles.icono} />
+              </View>
+            );
+          })}
+          <Text style={styles.TextoMenu}></Text>
         </BottomSheetScrollView>
-        <View style={{marginBottom:70}}/>
+        <View style={{ marginBottom: 70 }} />
       </BottomSheet>
-      <Toast ref={toastRef} position="top" opacity={0.8}/>
+      <Toast ref={toastRef} position="top" opacity={0.8} />
     </View>
   );
 };
@@ -392,8 +490,8 @@ const styles = StyleSheet.create({
     color: "#4b6584",
     marginTop: -15,
   },
-   /* estilos de INfolineas */
-   TextoMenu: {
+  /* estilos de INfolineas */
+  TextoMenu: {
     fontSize: 13.5,
     marginLeft: 100,
     flex: 1,

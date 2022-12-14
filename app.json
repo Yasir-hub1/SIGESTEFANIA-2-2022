@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "SIGESTEFANIA",
-    "slug": "SIGESTEFANIA",
+    "name": "SIG",
+    "slug": "SIG",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,6 +21,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.esthefania",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -29,7 +30,6 @@
         "googleMaps": {
           "apiKey": "AIzaSyCmhWkC-SitzxZpzgn6gYxtcUqSSwHnpsE"
         }
-        
       },
       "useNextNotificationsApi": true,
       "permissions": [
@@ -40,6 +40,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "45168224-3d67-4132-9e8b-a8f3aa8a9bd8"
+      }
     }
   }
 }
