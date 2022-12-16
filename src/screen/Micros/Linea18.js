@@ -177,7 +177,7 @@ const Linea18 = ({ navigation }) => {
           showsUserLocation={true}
           toolbarEnabled={false}
           userLocationFastestInterval={5000}
-          mapPadding={{ top: 495 }}
+          mapPadding={{ top: 455 }}
         >
 
           {ActivarIda ? <>
@@ -285,7 +285,7 @@ const Linea18 = ({ navigation }) => {
          <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
           <TouchableOpacity onPress={() => { setActivarTodo(!ActivarTodo); setActivarIda(false); setActivaVuelta(false) }}>
             <View style={styles.btnPlus}>
-              <Text style={{ color: "#ffffff", fontSize: 20 }}>IV</Text>
+              <Text style={{ color: "#ffffff", fontSize: 15 }}>IV</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -294,7 +294,7 @@ const Linea18 = ({ navigation }) => {
         <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
           <TouchableOpacity onPress={() => { setActivarIda(!ActivarIda); setActivaVuelta(false); setActivarTodo(false) }}>
             <View style={styles.btnPlus}>
-              <Text style={{ color: "#ffffff", fontSize: 20 }}>LI</Text>
+              <Text style={{ color: "#ffffff", fontSize: 15 }}>LI</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -304,7 +304,7 @@ const Linea18 = ({ navigation }) => {
         <View style={[styles.btnVerMenu, { marginTop: -20 }]}>
           <TouchableOpacity onPress={() => { setActivaVuelta(!ActivaVuelta); setActivarIda(false); setActivarTodo(false) }}>
             <View style={styles.btnPlus}>
-              <Text style={{ color: "#ffffff", fontSize: 20 }}>LV</Text>
+              <Text style={{ color: "#ffffff", fontSize: 15 }}>LV</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -413,8 +413,8 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   btnPlus: {
-    width: 45,
-    height: 45,
+    width: 35,
+    height: 35,
     marginBottom: 30,
     backgroundColor: "#ED4C67",
     borderRadius: 50,
